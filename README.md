@@ -1,5 +1,5 @@
 
-The idea for building this project had arisen from data structures and algorithm a module, where we were introduced with Dynamic Programming with an example of Basic String Alignment
+The idea for building this project had arisen from data structures and algorithm module, where we were introduced with Dynamic Programming with an example of basic String Alignment in DNA Sequence.
 
 
 
