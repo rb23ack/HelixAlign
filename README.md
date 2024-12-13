@@ -14,4 +14,4 @@ The idea for building this project had arisen from data structures and algorithm
 (2) css3
 (3) javascript
 
-More will be added soon. Work in progress 
+    More will be added soon. Work in progress 
