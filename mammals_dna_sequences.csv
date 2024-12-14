@@ -62,14 +62,14 @@ data = [
     ("Armadillo", "TCAGATCGTAGTCGACTGACTCGTACG"),
     ("Anteater", "ATGAGTCAGACTTAGCAGGTCGATCGG"),
     ("Coyote", "CGTAGACTGATCAGTACGAGGATCGAT"),
-    ("Jaguar", "AGTACGACTGTCGATCGGACTAGTCGAC"),
+    ("Jaguar", "GTCAGACTGTCGATCGGACTAGTCGAC"),
     ("Puma", "ATCGTACGACTAGTCAGTACGTAGACTG"),
     ("Cougar", "AGTCAGTACGAGCTAGGATCGTACGAC"),
     ("LeopardSeal", "TCGACTAGGTACAGGACGTAGACATCG"),
     ("PolarBear", "CGTACGAGTAGGACATCGTACGAGCTA"),
     ("SnowLeopard", "AGGACTAGCTGACGTAGGTCAGCGACT"),
     ("MountainLion", "TCAGCGACTACGAGTCGATCGGAGTA"),
-    ("GrizzlyBear", "ATGAGTCATGACTAGCTACGGTAGGAG"),
+    ("GrizzlyBear", "ATMAGTCATGACTAGCTACGGTAGGAG"),
     ("Cheetah", "ATCGGACTAGTCAGTACGAGGTAGATC"),
     ("Jaguarundi", "CGTACGAGTCGAGCTAGGACTCGTAGCG"),
     ("Muntjac", "ACTCGTACGTAGTCAGTACGATCGGAG"),
@@ -93,13 +93,12 @@ data = [
     ("Baboons", "TACGTAGACTAGATCGTCGACTAGGCT")
 ]
 
-# Path to save the CSV file
-csv_filename = '/path/to/mammals_dna_sequences.csv' #Add your own path
+# Save CSV file in the current directory
+csv_filename = 'mammals_dna_sequences.csv'
 
-# Writing data to the CSV file
 with open(csv_filename, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["species", "dna_sequence"])  # Writing header
-    writer.writerows(data)  # Writing rows
+    writer.writerows(data)  # Writing data rows
 
 print(f"CSV file created: {csv_filename}")
