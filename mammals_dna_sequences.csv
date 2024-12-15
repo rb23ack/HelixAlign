@@ -1,5 +1,5 @@
 import csv
-
+  
 # Data for 100 mammals and their DNA sequences
 data = [
     ("Human", "ATGCGTACGATCGAAGTCAGTGCATCG"), 
