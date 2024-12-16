@@ -10,4 +10,4 @@ The idea for building this project had arisen from data structures and algorithm
 - Frontend
   Python
 
-- More will be added soon. Work in progress 
+- More will be added soon. Work in progress
