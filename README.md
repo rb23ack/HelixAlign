@@ -6,12 +6,7 @@ The idea for building this project had arisen from data structures and algorithm
 ## Technology Stack 
 
 -  Backend
-(1) Flask (Python)
-(2) SQLite
-
+   Java
 - Frontend
-(1) html5
-(2) css3
-(3) javascript
-
+  Python
     More will be added soon. Work in progress 
