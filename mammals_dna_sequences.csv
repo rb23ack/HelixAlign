@@ -101,4 +101,4 @@ with open(csv_filename, mode='w', newline='') as file:
     writer.writerow(["species", "dna_sequence"])  # Writing header
     writer.writerows(data)  # Writing data rows
 
-print(f"CSV file created: {csv_filename}")
+print(f"CSV file created: {csv_filename}")   #print 
