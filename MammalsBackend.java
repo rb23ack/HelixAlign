@@ -4,40 +4,56 @@ import com.sun.net.httpserver.HttpExchange;
 
 import java.io.OutputStream;
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.google.gson.Gson;
 
 public class MammalsBackend {
     public static void main(String[] args) throws Exception {
-        // Create HTTP server
-        HttpServer server = HttpServer.create(new java.net.InetSocketAddress(8080), 0);
+        // Dynamic port configuration
+        int port = Integer.parseInt(System.getenv().getOrDefault("PORT", "8080"));
+        HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
+
         server.createContext("/mammals", new MammalsHandler());
-        server.setExecutor(null); // creates a default executor
+        server.setExecutor(null); // Default executor
         server.start();
-        System.out.println("Server started on port 8080...");
+        System.out.println("Server started on port " + port + "...");
     }
 
     static class MammalsHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
-            List<Mammal> mammals = getMammals(); // Fetch the list of 100 mammals
-            String response = new Gson().toJson(mammals);
+            try {
+                // Only handle GET requests
+                if (!"GET".equalsIgnoreCase(exchange.getRequestMethod())) {
+                    sendResponse(exchange, 405, "Method Not Allowed");
+                    return;
+                }
 
-            // Set response headers
-            exchange.getResponseHeaders().set("Content-Type", "application/json");
-            exchange.sendResponseHeaders(200, response.getBytes().length);
+                // Fetch mammals list
+                List<Mammal> mammals = getMammals();
+                String response = new Gson().toJson(mammals);
 
-            // Write the response body
+                // Set headers and send response
+                exchange.getResponseHeaders().set("Content-Type", "application/json");
+                exchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");
+                sendResponse(exchange, 200, response);
+            } catch (Exception e) {
+                // Handle unexpected server errors
+                e.printStackTrace();
+                sendResponse(exchange, 500, "Internal Server Error");
+            }
+        }
+
+        private void sendResponse(HttpExchange exchange, int statusCode, String response) throws IOException {
+            exchange.sendResponseHeaders(statusCode, response.getBytes().length);
             OutputStream os = exchange.getResponseBody();
             os.write(response.getBytes());
             os.close();
         }
-
-        // Method to return a list of 100 mammals with DNA sequences
-        // The data here is sourced from animal encyclopedias, animal diversity databases,
-            // and publicly available information on well-known animal species.
 
         private List<Mammal> getMammals() {
             List<Mammal> mammals = new ArrayList<>();
@@ -122,11 +138,14 @@ public class MammalsBackend {
             mammals.add(new Mammal("Hippopotamus", "Hippopotamus amphibius", "Rivers", "Herbivore", "40-50 years"));
             mammals.add(new Mammal("Mantis Shrimp", "Stomatopoda", "Ocean", "Carnivore", "6 years"));
 
-
-
-            
-
-            return mammals;
+        private String generateRandomDNA() {
+            String chars = "ACGT";
+            StringBuilder dna = new StringBuilder();
+            Random random = new Random();
+            for (int i = 0; i < 50; i++) { // Generate a DNA sequence of 50 base pairs
+                dna.append(chars.charAt(random.nextInt(chars.length())));
+            }
+            return dna.toString();
         }
     }
 
@@ -197,3 +216,4 @@ public class MammalsBackend {
         }
     }
 }
+
