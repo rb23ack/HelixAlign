@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify
 import requests
 
-app = Flask(__name__)
+app = Flask(__name__)    
 
 # Backend URL
 BACKEND_URL = "http://localhost:8080/mammals"
