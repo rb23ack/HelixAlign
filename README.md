@@ -1,6 +1,6 @@
-## Advanced DNA Matching Game
+## HelixAlign
 
-The Advanced DNA Matching Game is an interactive Python-based game that combines dynamic programming, DNA sequence matching, and visualization to create a fun and educational experience. The game uses the Longest Common Subsequence (LCS) algorithm to compare DNA sequences and visualize the matching process step-by-step. Players can compete, track scores on a leaderboard, and interact with the game using a GUI built with Tkinter.
+The HelixAlign is an advanced DNA Matching Game is an interactive Python-based game that combines dynamic programming, DNA sequence matching, and visualization to create a fun and educational experience. The game uses the Longest Common Subsequence (LCS) algorithm to compare DNA sequences and visualize the matching process step-by-step. Players can compete, track scores on a leaderboard, and interact with the game using a GUI built with Tkinter.
 
 ## Features
 - Interactive GUI
