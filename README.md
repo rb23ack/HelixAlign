@@ -67,7 +67,6 @@ Import DNA sequences from a .txt file and compare them.
 
 Example File Format for Loading DNA Sequences:
 
-
 Player: Player1
 Sequence 1: ACGTACGT
 Sequence 2: GTCACGTA
@@ -76,6 +75,10 @@ Sequence 2: GTCACGTA
 The DNA sequences must only contain characters from the set {A, C, G, T}.
 The sequences can be of any length, but shorter sequences will calculate faster.
 Compete to achieve the highest matching percentage and top the leaderboard!
+
+## Enhanced Features 
+
+- More will be added later s the game is still in development process
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
