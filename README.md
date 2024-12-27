@@ -78,7 +78,6 @@ Compete to achieve the highest matching percentage and top the leaderboard!
 
 ## Enhanced Features 
 
-- More will be added later s the game is still in development process
-
+- More will be added later s the game is still in development process. I will make sure to add enhanced features for real-time game experience. 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
